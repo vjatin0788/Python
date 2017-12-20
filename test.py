@@ -8,6 +8,7 @@ Created on Tue Dec 12 21:30:42 2017
 
 class Myclass(object):
     var = "Puri"
+    __hiddenvar = 'my hidden var'
     def __new__(cls,*args,**kwargs): #this is the method which create the objects
         print(cls)
         print(args)
@@ -25,11 +26,16 @@ class Myclass(object):
     @classmethod # class method is method in which class itself is passed 
     def static(cls):
         print(cls)
+    def __repr__(self):
+        return self.name
+    def __str__(self):
+        return 'my name : %s' % self.name
         
 def main():
     obj = Myclass("Jatin")        
     obj.display() #implicitly Myclass.display(obj)
     Myclass.display(obj)
+    print(obj._MyClass__hiddenvar) #accessing the hidden var
     print(Myclass.display) # it is function type. it will tell its type 
     print(Myclass.stat_method()) #it is static method
     print(obj.display) #it is method type because obj is passed
