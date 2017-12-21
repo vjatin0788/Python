@@ -15,3 +15,8 @@ method2(method1)
 #key valuue
 Map = {'a':1,'b':2}     
 Map['a']
+
+#Lambda Expression
+double = lambda x : x * 2 #it can accept any number of arguments and it will always return the statement.
+
+print(double(10))
